@@ -1,0 +1,18 @@
+[package]
+name = "backdoor_game"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+macroquad = "0.4.14"
+native-tls = "0.2.18"
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.56.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+# panic = "abort" # Commented out for debugging
+strip = true
